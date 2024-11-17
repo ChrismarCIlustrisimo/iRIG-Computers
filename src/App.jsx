@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; // Add Navigate import
 import ProductProvider from './onlineListing/page';
 

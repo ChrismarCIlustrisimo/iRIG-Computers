@@ -7,8 +7,9 @@ import '../onlineListing.css';
 import IRIGImage from '../assets/IRIGImage.png';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
+import { API_DOMAIN } from '../../utils/constants';
 
-const ECommerce = () => {
+const Ecommerce = () => {
     const [query, setQuery] = useState('');
     const [currentIndexLatest, setCurrentIndexLatest] = useState(0);
     const [currentIndexTopSellers, setCurrentIndexTopSellers] = useState(0);
@@ -16,7 +17,7 @@ const ECommerce = () => {
     const [topSellers, setTopSellers] = useState([]);
     const [productsPerPage, setProductsPerPage] = useState(5); // Default value for larger screens
 
-    const baseURL = "http://localhost:5555";
+    const baseURL = API_DOMAIN;
 
     const handleQueryChange = (newQuery) => {
         setQuery(newQuery);
@@ -135,5 +136,4 @@ const ECommerce = () => {
     );
 };
 
-export default ECommerce;
-    
+export default Ecommerce;
