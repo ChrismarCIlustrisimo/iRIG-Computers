@@ -156,7 +156,7 @@ const ViewProducts = () => {
                 </div>
 
                 <div className="mt-8 text-black">
-                    <h2 className="text-lg font-semibold mb-2">Description</h2>
+                    <h2 className="text-lg font-semibold mb-2">Product Specification</h2>
                     <ul className="list-none pl-0">
                         {descriptions.map((item, index) => (
                             <li key={index} className="mb-1">
