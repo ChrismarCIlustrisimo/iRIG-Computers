@@ -6,6 +6,7 @@
     import axios from 'axios';
     import { ToastContainer } from 'react-toastify';
     import { API_DOMAIN } from '../../../utils/constants';
+    import { Link } from 'react-router-dom';
 
 
     const Laptops = () => {
@@ -120,8 +121,8 @@
                         draggable 
                         theme="light"
                     />
-                <div className="container w-full mt-20 mx-auto md:p-4">
-                  <p className='p-4 mb-4'>Home &gt; Laptops</p>
+                <div className="container w-full mt-20 md:mt-40 mx-auto md:p-4">
+                <div className='pb-4'><Link to="/" className="text-black hover:underline">Home</Link> &gt; Laptops</div>
 
                         <div className='flex w-full'>
                             {/* left side Filter HERE */}

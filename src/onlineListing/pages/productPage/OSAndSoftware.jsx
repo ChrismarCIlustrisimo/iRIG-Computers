@@ -6,6 +6,7 @@ import ProductHeader from '../../components/ProductHeader';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { API_DOMAIN } from '../../../utils/constants';
+import { Link } from 'react-router-dom';
 
 const OSAndSoftware = () => {
     const [products, setProducts] = useState([]);
@@ -116,9 +117,10 @@ const OSAndSoftware = () => {
                 theme="light"
             />
 
-            
-            <div className="container w-full mt-20 mx-auto md:p-4">
-              <p className='p-4 mb-4'>Home &gt; OS & Software</p>
+
+         <div className="container w-full mt-20 md:mt-40 mx-auto md:p-4">
+              <div className='pb-4'><Link to="/" className="text-black hover:underline">Home</Link> &gt; OS & Software</div>
+              
                 <div className='flex w-full'>
                 <div className="max-md:hidden min-w-[20%] max-w-[20%] bg-white border border-gray-200 p-4 rounded-lg shadow-lg space-y-6 h-[500px] overflow-y-auto">
                 <h2 className="text-xl font-semibold mb-4">Filters</h2>

@@ -6,6 +6,7 @@ import ProductHeader from '../../components/ProductHeader';
 import axios from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { API_DOMAIN } from '../../../utils/constants';
+import { Link } from 'react-router-dom';
 
 const subcategories = [
     "Chassis Fan",
@@ -131,8 +132,8 @@ const Components = () => {
                 draggable 
                 theme="light"
             />
-                <div className="container w-full mt-20 mx-auto md:p-4">
-                    <p className='p-4 mb-4'>Home &gt; Components</p>
+                <div className="container w-full mt-20 md:mt-40 mx-auto md:p-4">
+                <div className='pb-4'><Link to="/" className="text-black hover:underline">Home</Link> &gt; Components</div>
 
                     <div className='flex w-full'>
                         {/* Left Side Filter */}
