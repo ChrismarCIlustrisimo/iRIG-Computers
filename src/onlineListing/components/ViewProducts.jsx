@@ -156,7 +156,7 @@ const ViewProducts = () => {
                 </div>
 
                 <div className="mt-8 text-black">
-                    <h2 className="text-2xl font-semibold mb-2">Product Specification<span className='text-white'>sdas</span> </h2>
+                    <h2 className="text-2xl font-semibold mb-2">Product Specification</h2>
                     <ul className="list-none pl-0">
                         {descriptions.map((item, index) => {
                             // Split the item into title and value at the first colon
@@ -164,7 +164,7 @@ const ViewProducts = () => {
 
                             return (
                             <li key={index} className="mb-2">
-                                <span>{title}:</span> <span className="font-semibold">{value}</span>
+                                <span className="font-semibold text-lg">{title}:</span> <span>{value}</span>
                             </li>
                             );
                         })}
