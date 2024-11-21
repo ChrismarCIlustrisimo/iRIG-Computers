@@ -22,7 +22,7 @@ const StoreLocation = () => {
                 </p>
             </div>
 
-            <div className="max-w-4xl mx-auto p-6 mt-8 flex flex-col md:flex-row items-center justify-center gap-12 border border-red-800 ">
+            <div className="max-w-4xl mx-auto p-6 mt-8 flex flex-col md:flex-row items-center justify-center gap-12">
             <div className="flex flex-col space-y-6 w-72  my-4">
                     <div className="flex justify-center items-center space-x-8">
 
