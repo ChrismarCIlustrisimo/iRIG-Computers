@@ -107,9 +107,14 @@ const Ecommerce = () => {
             />
 
             <div className='md:mt-[130px] mt-[50px] w-full bg-gray-200 flex items-center justify-center flex-col'>
-                <div className='w-full flex items-center justify-center bg-[#201F1D] mt-2'>
-                    <img src={IRIGImage} alt="IRIG" />
+                <div className="w-full flex items-center justify-center bg-[#201F1D] mt-2">
+                    <img 
+                        src={IRIGImage} 
+                        alt="IRIG" 
+                        className="w-full max-w-[500px] h-auto object-contain" 
+                    />
                 </div>
+
 
                 <ProductGrid />
 
