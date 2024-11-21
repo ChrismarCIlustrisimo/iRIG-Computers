@@ -62,7 +62,7 @@ const Navbar = ({ query, onQueryChange }) => {
                     placeholderMessage="Search..."
                     className="hidden md:block w-[90%] md:w-[600px]" // Hides the search bar on mobile
                 />
-                <div className="flex gap-2 items-center text-white text-xl font-medium">
+                <div className="flex gap-2 items-center text-white text-xl font-medium transform transition-all duration-300 hover:scale-110">
                     <Badge
                         badgeContent={cart.length}
                         sx={{
@@ -72,8 +72,12 @@ const Navbar = ({ query, onQueryChange }) => {
                             }
                         }}
                     >
-                        <MdOutlineShoppingCart className="md:text-2xl text-3xl cursor-pointer" onClick={toggleCart} />
+                        <MdOutlineShoppingCart 
+                            className="md:text-2xl text-3xl cursor-pointer " 
+                            onClick={toggleCart} 
+                        />
                     </Badge>
+
                     <p className="hidden md:block cursor-pointer" onClick={toggleCart}>Cart</p>
                 </div>
             </div>
