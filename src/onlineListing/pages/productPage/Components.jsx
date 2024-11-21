@@ -20,7 +20,7 @@ const subcategories = [
     "Intel Processor",
     "Processor Tray",
     "Solid State Drive (SSD)",
-    "AMD Processor"
+    "AMD Processor",
 
 ];
 
