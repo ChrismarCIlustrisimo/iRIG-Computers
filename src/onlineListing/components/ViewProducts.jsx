@@ -156,16 +156,18 @@ const ViewProducts = () => {
                 </div>
 
                 <div className="mt-8 text-black">
-                    <h2 className="text-lg font-semibold mb-2">Product Specification</h2>
+                    <h2 className="text-2xl font-semibold mb-2">Product Specification</h2>
                     <ul className="list-none pl-0">
-                        {descriptions.map((item, index) => {
-                            // Split the text based on the ":"
-                            const [label, value] = item.split(':');
+                    {descriptions.map((item, index) => {
+                            const splitItem = item.split(':');
+                            const title = splitItem[0]; // The part before the colon
+                            const value = splitItem.slice(1).join(':'); // The part after the colon
+
                             return (
-                                <li key={index} className="mb-1">
-                                    <span className="font-semibold">{label}:</span>
-                                    <span>{value}</span>
-                                </li>
+                            <div key={index}>
+                                <span>{title}: </span>
+                                <span style={{ fontWeight: '600' }}>{value}</span>
+                            </div>
                             );
                         })}
                     </ul>
