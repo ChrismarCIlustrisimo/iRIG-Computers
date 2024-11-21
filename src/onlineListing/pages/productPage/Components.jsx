@@ -19,7 +19,9 @@ const subcategories = [
     "Power Supply",
     "Intel Processor",
     "Processor Tray",
-    "Solid State Drive (SSD)"
+    "Solid State Drive (SSD)",
+    "AMD Processor"
+
 ];
 
 const Components = () => {
