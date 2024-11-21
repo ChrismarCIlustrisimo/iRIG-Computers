@@ -3,11 +3,11 @@ import iRig1 from '../assets/iRig1.png';
 import Searchbar from './Searchbar';
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaTimes, FaAngleDown } from "react-icons/fa"; // Import FaTimes for the close icon
 import Badge from '@mui/material/Badge';
-import { FaAngleDown } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import CartPopup from './CartPopup';
-import { useProductContext } from '../page.jsx'; // Update import to use the custom hook
+import { useProductContext } from '../page.jsx'; // Ensure this path is correct
 
 const categories = [
     { name: "Components", path: "/iRIG/components" },
@@ -25,7 +25,7 @@ const Navbar = ({ query, onQueryChange }) => {
     const [isCategoryPopupOpen, setIsCategoryPopupOpen] = useState(false);
     const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
-    const { cart, increaseQuantity, decreaseQuantity, removeItem, setCart } = useProductContext(); // Make sure to include setCart
+    const { cart, increaseQuantity, decreaseQuantity, removeItem, setCart } = useProductContext(); // Ensure setCart is available
 
     const toggleMenu = () => setIsMenuOpen(prev => !prev);
     const toggleCart = () => setIsCartOpen(prev => !prev);
@@ -40,7 +40,18 @@ const Navbar = ({ query, onQueryChange }) => {
         <header className="text-black fixed left-0 right-0 top-0 flex flex-col items-center bg-light-primary z-50">
             <div className="md:w-[60%] w-full flex items-center justify-around py-2 md:py-4 md:gap-2 gap-12">
                 <div className='flex gap-2 h-full items-center justify-center'>
-                    <GiHamburgerMenu className="text-5xl cursor-pointer md:hidden text-white" onClick={toggleMenu} />
+                    {/* Conditional Rendering of Hamburger and Close Icons */}
+                    {isMenuOpen ? (
+                        <FaTimes
+                            className="text-5xl cursor-pointer md:hidden text-white"
+                            onClick={toggleMenu}
+                        />
+                    ) : (
+                        <GiHamburgerMenu
+                            className="text-5xl cursor-pointer md:hidden text-white"
+                            onClick={toggleMenu}
+                        />
+                    )}
                     <Link to="/iRIG/">
                         <img src={iRig1} alt="Website Logo" className="h-8 w-auto max-w-[150px] sm:max-w-[100px] md:max-w-full md:h-12" />
                     </Link>

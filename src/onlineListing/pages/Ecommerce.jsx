@@ -116,8 +116,6 @@ const Ecommerce = () => {
                 </div>
 
 
-
-
                 <ProductGrid />
 
                 <main className='w-full max-w-[1200px] flex flex-col items-center md:p-4 h-auto'>
