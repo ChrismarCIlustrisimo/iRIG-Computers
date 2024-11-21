@@ -111,9 +111,10 @@ const Ecommerce = () => {
                     <img 
                         src={IRIGImage} 
                         alt="IRIG" 
-                        className="w-full max-w-[500px] h-auto object-contain md:max-h-[400px] max-h-[400px]" 
+                        className="w-full max-w-[500px] h-auto object-contain sm:max-h-[300px] max-h-[250px]" 
                     />
                 </div>
+
 
 
 
