@@ -158,11 +158,16 @@ const ViewProducts = () => {
                 <div className="mt-8 text-black">
                     <h2 className="text-lg font-semibold mb-2">Product Specification</h2>
                     <ul className="list-none pl-0">
-                        {descriptions.map((item, index) => (
-                            <li key={index} className="mb-1">
-                                {item}
-                            </li>
-                        ))}
+                        {descriptions.map((item, index) => {
+                            // Split the text based on the ":" and apply styles
+                            const [label, value] = item.split(':');
+                            return (
+                                <li key={index} className="mb-1">
+                                    <span className="font-bold">{label}:</span>
+                                    <span className="text-highlight">{value}</span>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
 
