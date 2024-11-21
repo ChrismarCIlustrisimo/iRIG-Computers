@@ -30,6 +30,7 @@ function App() {
             <Router>  {/* Make sure Router is wrapping the Routes */}
                 <Routes>
                     {/* Main E-commerce Routes */}
+                    <Route path="/" element={<MainPage />} />
                     <Route path="/iRIG" element={<MainPage />} />
                     <Route path="/Ereceipt" element={<Erceipt />} />
                     <Route path="/iRIG/products/view/:id" element={<ViewProducts />} />
