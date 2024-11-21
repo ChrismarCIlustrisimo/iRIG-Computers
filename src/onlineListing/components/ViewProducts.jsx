@@ -158,19 +158,18 @@ const ViewProducts = () => {
                 <div className="mt-8 text-black">
                     <h2 className="text-2xl font-semibold mb-2">Product Specification</h2>
                     <ul className="list-none pl-0">
-                    {descriptions.map((item, index) => {
-                            const splitItem = item.split(':');
-                            const title = splitItem[0]; // The part before the colon
-                            const value = splitItem.slice(1).join(':'); // The part after the colon
+                        {descriptions.map((item, index) => {
+                            // Split the item into title and value at the first colon
+                            const [title, value] = item.split(':');
 
                             return (
-                            <div key={index}>
-                                <span>{title}: </span>
-                                <span style={{ fontWeight: '600' }}>{value}</span>
-                            </div>
+                            <li key={index} className="mb-1">
+                                <span>{title}:</span> <span className="font-semibold">{value}</span>
+                            </li>
                             );
                         })}
-                    </ul>
+                        </ul>
+
                 </div>
 
                 {relatedProducts.length > 0 && (
