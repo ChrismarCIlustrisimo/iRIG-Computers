@@ -131,8 +131,8 @@ const Components = () => {
                 draggable 
                 theme="light"
             />
-                <div className="container w-full mt-40 mx-auto md:p-4">
-                    <p className='p-4 mb-8'>Home &gt; Components</p>
+                <div className="container w-full mt-20 mx-auto md:p-4">
+                    <p className='p-4 mb-4'>Home &gt; Components</p>
 
                     <div className='flex w-full'>
                         {/* Left Side Filter */}

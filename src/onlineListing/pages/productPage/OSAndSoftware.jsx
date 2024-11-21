@@ -115,8 +115,10 @@ const OSAndSoftware = () => {
                 draggable 
                 theme="light"
             />
-            <div className="container w-full mt-40 mx-auto md:p-4">
-                <p className='p-4 mb-8'>Home &gt; OS & Software</p>
+
+            
+            <div className="container w-full mt-20 mx-auto md:p-4">
+              <p className='p-4 mb-4'>Home &gt; OS & Software</p>
                 <div className='flex w-full'>
                 <div className="max-md:hidden min-w-[20%] max-w-[20%] bg-white border border-gray-200 p-4 rounded-lg shadow-lg space-y-6 h-[500px] overflow-y-auto">
                 <h2 className="text-xl font-semibold mb-4">Filters</h2>
