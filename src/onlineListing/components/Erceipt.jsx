@@ -114,7 +114,7 @@ const Erceipt = () => {
           <img src={LOGO} className="max-w-[120px] w-full h-auto" alt="Logo" />
         </div>
         <header className="text-center mb-6">
-          <h2 className="text-xl font-semibold">Order Number</h2> 
+          <h2 className="text-xl font-semibold">E-receipt Order Number</h2> 
           <p className="text-6xl font-bold">{transaction_Id || 'N/A'}</p> 
         </header>
 

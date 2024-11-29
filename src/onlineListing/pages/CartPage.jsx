@@ -60,7 +60,7 @@ const CartPage = () => {
                                                         />
                                                         <div className="flex flex-col">
                                                             <h3 className="text-lg font-semibold">{item.name}</h3>
-                                                            <p className="text-red-500 font-bold">₱{(Number(item.selling_price) || 0).toLocaleString()}</p>
+                                                            <p className="text-red-500 font-bold">₱{(Number(item.selling_price) || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                                                         </div>
                                                     </td>
                                                     <td className="border-b p-4 text-center">
@@ -72,7 +72,7 @@ const CartPage = () => {
                                                         <button className="text-red-500" onClick={() => removeItem(index)}>Remove</button>
                                                     </td>
                                                     <td className="border-b p-4 text-right text-lg font-bold">
-                                                        ₱{((Number(item.selling_price) || 0) * (Number(item.quantity) || 1)).toLocaleString()}
+                                                        ₱{((Number(item.selling_price) || 0) * (Number(item.quantity) || 1)).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                                     </td>
                                                 </tr>
                                             ))}
@@ -93,7 +93,7 @@ const CartPage = () => {
                                                 <div className="flex flex-col">
                                                     <h3 className="text-sm font-semibold">{item.name}</h3>
                                                     <p className="text-red-500 font-bold text-sm">
-                                                        ₱{(Number(item.selling_price) || 0).toLocaleString()}
+                                                        ₱{(Number(item.selling_price) || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                                     </p>
                                                 </div>
                                             </div>
@@ -108,7 +108,7 @@ const CartPage = () => {
                                             <div className="flex items-center justify-between">
                                                 <span className="font-semibold">Total:</span>
                                                 <p className="text-lg font-bold text-right">
-                                                    ₱{((Number(item.selling_price) || 0) * (Number(item.quantity) || 1)).toLocaleString()}
+                                                    ₱{((Number(item.selling_price) || 0) * (Number(item.quantity) || 1)).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                                 </p>
                                             </div>
                                             <button className="text-red-500 text-sm" onClick={() => removeItem(index)}>Remove</button>
@@ -125,11 +125,11 @@ const CartPage = () => {
                                 <h2 className="text-xl font-semibold mb-4">Cart Summary</h2>
                                 <div className="flex justify-between mb-2">
                                 <p>Subtotal ({cart.reduce((acc, item) => acc + (Number(item.quantity) || 1), 0)} item{cart.length > 1 ? 's' : ''})</p>
-                                <p>₱{totalPrice.toLocaleString() || 0}</p>
+                                <p>₱{totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) || 0}</p>
                                 </div>
                                 <div className="flex justify-between text-red-500 font-bold text-xl mb-4">
                                     <p>Total</p>
-                                    <p>₱{totalPrice.toLocaleString() || 0}</p>
+                                    <p>₱{totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) || 0}</p>
                                 </div>
                                 <button className="bg-blue-500 text-white w-full py-2 rounded-lg" onClick={handleCheckout}>
                                     Checkout

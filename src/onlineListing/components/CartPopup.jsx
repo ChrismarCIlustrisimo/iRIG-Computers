@@ -42,7 +42,7 @@ const CartPopup = ({
                             <p>Your cart is empty.</p>
                         </div>
                     ) : (
-                        <ul className="md:max-h-[200px] h-[50vh] overflow-y-auto">
+                        <ul className="md:max-h-[320px] h-[50vh] overflow-y-auto">
                             {cartItems.map((item, index) => (
                                 <li key={index} className="flex items-center py-4 border-b">
                                     <img
@@ -51,45 +51,48 @@ const CartPopup = ({
                                         className="w-16 h-16 mr-4 object-cover"
                                     />
                                     <div className="flex-1">
-                                        <p className="font-semibold">{item.name}</p>
-                                        <p className="text-orange-500 font-bold">
-                                            ₱{(item.selling_price * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                                        </p>
-                                    </div>
-                                    <td className="border-b p-4 text-center">
-                                        <div className="flex items-center justify-center gap-2 border-2 border-gray-200 px-2">
+                                        <p className="font-semibold py-2">{item.name}</p>
+                                        <div className='flex flex-col items-center w-[120px]'>
+                                            <div className="flex items-center justify-center w-[100px] gap-2 border-2 border-gray-200 px-2">
+                                                <button 
+                                                    className="p-1" 
+                                                    onClick={() => onDecreaseQuantity(index)} 
+                                                >
+                                                    -
+                                                </button>
+                                                <span className="px-1 text-black">{item.quantity || 1}</span>
+                                                <button 
+                                                    className="p-1" 
+                                                    onClick={() => onIncreaseQuantity(index)} 
+                                                >
+                                                    +
+                                                </button>
+                                            </div>
                                             <button 
-                                                className="p-1" 
-                                                onClick={() => onDecreaseQuantity(index)} 
+                                                className="text-red-500" 
+                                                onClick={() => handleRemoveItem(index)}
                                             >
-                                                -
-                                            </button>
-                                            <span className="px-1 text-black">{item.quantity || 1}</span>
-                                            <button 
-                                                className="p-1" 
-                                                onClick={() => onIncreaseQuantity(index)} 
-                                            >
-                                                +
+                                                Remove
                                             </button>
                                         </div>
-                                        <button 
-                                            className="text-red-500" 
-                                            onClick={() => handleRemoveItem(index)}
-                                        >
-                                            Remove
-                                        </button>
+ 
+                                    </div>
+                                    <td className=" p-4 text-center">
+                                        <p className="text-light-primary font-bold">
+                                            ₱ {(item.selling_price * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                        </p>
                                     </td>
                                 </li>
                             ))}
                         </ul>
                     )}
                     {cartItems.length > 0 && (
-                        <div className="mt-4 flex justify-between items-center font-semibold text-lg">
+                        <div className="mt-4 flex justify-between items-center font-semibold text-lg px-6">
                             <span>Total</span>
-                            <span className="text-orange-500">₱{totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                            <span className="text-light-primary">₱ {totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                         </div>
                     )}
-                    <div className="mt-4 flex justify-start items-center gap-4">
+                    <div className="mt-4 flex justify-start items-center gap-4 px-6">
                         <button onClick={handleViewCart} className="px-4 py-2 bg-blue-500 text-white rounded">View Cart</button>
                         <button
                             onClick={() => {
@@ -99,7 +102,7 @@ const CartPopup = ({
                                     onClose(); // Close the cart popup if there are no items
                                 }
                             }}
-                            className={`px-4 py-2 ${cartItems.length > 0 ? 'bg-orange-500' : 'bg-gray-500'} text-white rounded`}
+                            className={`px-4 py-2 ${cartItems.length > 0 ? 'bg-light-primary' : 'bg-gray-500'} text-white rounded`}
                         >
                             {cartItems.length > 0 ? 'Checkout' : 'Close'}
                         </button>
