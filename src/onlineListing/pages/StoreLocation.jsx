@@ -8,7 +8,7 @@ import { BiSolidDownArrow } from "react-icons/bi";
 import { BiSolidUpArrow } from "react-icons/bi";
 
 const StoreLocation = () => {
-    const [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(true)
 
     const isStoreOpen = () => {
         const now = new Date();
@@ -126,7 +126,6 @@ const StoreLocation = () => {
 
             </div>
 
-            <p><span className="font-bold mr-2">Contact: </span>(02) 83646039 | 0923-444-1030</p>
             </div>
       </div>
 
