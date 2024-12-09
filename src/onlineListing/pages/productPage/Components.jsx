@@ -159,6 +159,7 @@ const Components = () => {
                                         }
                                         className="w-1/3 border border-gray-300 p-1 text-center text-sm"
                                         placeholder="Min"
+                                        id="price-min"  // Adding id to the Min price input
                                     />
                                     <span className="mx-2 text-sm">-</span>
                                     <input
@@ -174,6 +175,7 @@ const Components = () => {
                                         }
                                         className="w-1/3 border border-gray-300 p-1 text-center text-sm"
                                         placeholder="Max"
+                                        id="price-max"  // Adding id to the Max price input
                                     />
                                 </div>
                                 <input
@@ -188,6 +190,7 @@ const Components = () => {
                                         }))
                                     }
                                     className="w-full"
+                                    id="price-range"  // Adding id to the range slider
                                 />
                                 <div className="flex justify-between text-sm mt-1">
                                     <span>₱{filters.priceRange[0]}</span>
@@ -195,10 +198,12 @@ const Components = () => {
                                 </div>
                             </div>
 
+
                             <div>
                                 <h3 className="text-lg font-medium mb-2">Top Selling</h3>
                                 <div className="flex items-center space-x-2">
                                     <input
+                                        id='topSellingProduct'
                                         type="checkbox"
                                         checked={filters.isTopSelling}
                                         onChange={() => setFilters((prevFilters) => ({
@@ -214,48 +219,58 @@ const Components = () => {
                             {/* Subcategory Filter */}
                             <div className="border-b border-gray-300 pb-4 mb-4">
                                 <h3 className="text-lg font-medium mb-2">Subcategory</h3>
-                                {subcategories.map((subcategory) => (
-                                    <label key={subcategory} className="block">
+                                {subcategories.map((subcategory, index) => (
+                                    <label key={subcategory} className="block" htmlFor={`subcategory-${index}`}>
                                         <input
                                             type="checkbox"
+                                            id={`subcategory-${index}`}  // Adding unique id for each checkbox
                                             onChange={() => handleFilterChange('subcategories', subcategory)}
-                                            className='mr-2'
+                                            className="mr-2"
                                         />
                                         {subcategory}
                                     </label>
                                 ))}
                             </div>
+
                         </div>
 
-                        {/* Right Side Products */}
-                        <div className='md:ml-6 w-full  flex flex-col justify-between'>
+                            {/* Right Side Products */}
+                        <div className="md:ml-6 w-full flex flex-col justify-between">
                             <ProductHeader header={"Components"} />
-                            <div className='w-full px-6 flex items-center justify-end'>
-                                <div className='flex items-center'>
+                            
+                            <div className="w-full px-6 flex items-center justify-end">
+                                <div className="flex items-center">
                                     <label htmlFor="sort" className="mr-2">Sort By:</label>
-                                    <select id="sort" value={sortOrder} onChange={handleSortChange} className="border border-gray-300 p-1 rounded">
-                                        <option value="">None</option>
-                                        <option value="A-Z">Alphabetically, A-Z</option>
-                                        <option value="Z-A">Alphabetically, Z-A</option>
-                                        <option value="Price: low to high">Price: low to high</option>
-                                        <option value="Price: high to low">Price: high to low</option>
-                                        <option value="Date: old to new">Date: old to new</option>
-                                        <option value="Date: new to old">Date: new to old</option>
+                                    <select
+                                        id="sort-order"  // Adding id for select element
+                                        value={sortOrder}
+                                        onChange={handleSortChange}
+                                        className="border border-gray-300 p-1 rounded"
+                                    >
+                                        <option id="none-option" value="">None</option>
+                                        <option id="az-option" value="A-Z">Alphabetically, A-Z</option>
+                                        <option id="za-option" value="Z-A">Alphabetically, Z-A</option>
+                                        <option id="price-low-high-option" value="Price: low to high">Price: low to high</option>
+                                        <option id="price-high-low-option" value="Price: high to low">Price: high to low</option>
+                                        <option id="date-old-new-option" value="Date: old to new">Date: old to new</option>
+                                        <option id="date-new-old-option" value="Date: new to old">Date: new to old</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 p-6">
+                            <div id="product-grid" className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 p-6">
                                 {finalDisplayedProducts.map(product => (
                                     <ProductCard key={product._id} product={product} />
                                 ))}
                             </div>
+
                             {/* Pagination Controls */}
-                            <div className="flex justify-between mt-8  p-6">
+                            <div id="pagination-controls" className="flex justify-between mt-8 p-6">
                                 <button
                                     onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                                     disabled={currentPage === 1}
                                     className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-gray-300"
+                                    id="prev-page-btn"  // Adding id for previous button
                                 >
                                     Previous
                                 </button>
@@ -263,11 +278,13 @@ const Components = () => {
                                     onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(sortedProducts.length / productsPerPage)))}
                                     disabled={currentPage >= Math.ceil(sortedProducts.length / productsPerPage)}
                                     className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-gray-300"
+                                    id="next-page-btn"  // Adding id for next button
                                 >
                                     Next
                                 </button>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <Footer />

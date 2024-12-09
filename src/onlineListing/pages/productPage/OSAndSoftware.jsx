@@ -125,44 +125,14 @@ const OSAndSoftware = () => {
                 <div className="max-md:hidden min-w-[20%] max-w-[20%] bg-white border border-gray-200 p-4 rounded-lg shadow-lg space-y-6 h-[500px] overflow-y-auto">
                 <h2 className="text-xl font-semibold mb-4">Filters</h2>
                         
-                        {/* Price Range Filter */}
-                        <div className="mb-4">
-                            <h3 className="font-semibold">Price Range</h3>
-                            <div className="flex justify-between items-center mb-2">
-                                <input
-                                    type="number"
-                                    min="0"
-                                    max="10000"
-                                    value={filters.priceRange[0]}
-                                    onChange={(e) =>
-                                        setFilters((prevFilters) => ({
-                                            ...prevFilters,
-                                            priceRange: [Number(e.target.value), filters.priceRange[1]],
-                                        }))
-                                    }
-                                    className="w-1/3 border border-gray-300 p-1 text-center text-sm"
-                                    placeholder="Min"
-                                />
-                                <span className="mx-2 text-sm">-</span>
-                                <input
-                                    type="number"
-                                    min="0"
-                                    max="10000"
-                                    value={filters.priceRange[1]}
-                                    onChange={(e) =>
-                                        setFilters((prevFilters) => ({
-                                            ...prevFilters,
-                                            priceRange: [filters.priceRange[0], Number(e.target.value)],
-                                        }))
-                                    }
-                                    className="w-1/3 border border-gray-300 p-1 text-center text-sm"
-                                    placeholder="Max"
-                                />
-                            </div>
+                    {/* Price Range */}
+                    <div className="border-b border-gray-300 pb-4 mb-4">
+                        <h3 className="text-lg font-medium mb-2">Price Range</h3>
+                        <div className="flex justify-between items-center mb-2">
                             <input
-                                type="range"
-                                min={0}
-                                max={10000}
+                                type="number"
+                                min="0"
+                                max="10000"
                                 value={filters.priceRange[0]}
                                 onChange={(e) =>
                                     setFilters((prevFilters) => ({
@@ -170,19 +140,54 @@ const OSAndSoftware = () => {
                                         priceRange: [Number(e.target.value), filters.priceRange[1]],
                                     }))
                                 }
-                                className="w-full"
+                                className="w-1/3 border border-gray-300 p-1 text-center text-sm"
+                                placeholder="Min"
+                                id="price-min"  // Adding id to the Min price input
                             />
-                            <div className="flex justify-between text-sm mt-1">
-                                <span>₱{filters.priceRange[0]}</span>
-                                <span>₱{filters.priceRange[1]}</span>
-                            </div>
+                            <span className="mx-2 text-sm">-</span>
+                            <input
+                                type="number"
+                                min="0"
+                                max="10000"
+                                value={filters.priceRange[1]}
+                                onChange={(e) =>
+                                    setFilters((prevFilters) => ({
+                                        ...prevFilters,
+                                        priceRange: [filters.priceRange[0], Number(e.target.value)],
+                                    }))
+                                }
+                                className="w-1/3 border border-gray-300 p-1 text-center text-sm"
+                                placeholder="Max"
+                                id="price-max"  // Adding id to the Max price input
+                            />
                         </div>
+                        <input
+                            type="range"
+                            min={0}
+                            max={10000}
+                            value={filters.priceRange[0]}
+                            onChange={(e) =>
+                                setFilters((prevFilters) => ({
+                                    ...prevFilters,
+                                    priceRange: [Number(e.target.value), filters.priceRange[1]],
+                                }))
+                            }
+                            className="w-full"
+                            id="price-range"  // Adding id to the range slider
+                        />
+                        <div className="flex justify-between text-sm mt-1">
+                            <span>₱{filters.priceRange[0]}</span>
+                            <span>₱{filters.priceRange[1]}</span>
+                        </div>
+                    </div>
+
 
                         {/* Top Selling Filter */}
                         <div>
                             <h3 className="text-lg font-medium mb-2">Top Selling</h3>
                             <div className="flex items-center space-x-2">
                                 <input
+                                    id='topSellingProduct'
                                     type="checkbox"
                                     checked={filters.isTopSelling}
                                     onChange={() => setFilters((prevFilters) => ({

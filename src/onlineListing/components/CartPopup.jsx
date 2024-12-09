@@ -27,9 +27,10 @@ const CartPopup = ({
         onClose();
     };
 
-    const handleRemoveItem = (index) => {
-        onRemoveItem(index);
-        toast.success(`${cartItems[index].name} has been removed from your cart!`);
+    const handleRemoveItem = (id) => {
+        const itemIndex = cartItems.findIndex(item => item.id === id);
+        onRemoveItem(itemIndex);
+        toast.success(`${cartItems[itemIndex].name} has been removed from your cart!`);
     };
 
     return (
@@ -43,8 +44,8 @@ const CartPopup = ({
                         </div>
                     ) : (
                         <ul className="md:max-h-[320px] h-[50vh] overflow-y-auto">
-                            {cartItems.map((item, index) => (
-                                <li key={index} className="flex items-center py-4 border-b">
+                            {cartItems.map((item) => (
+                                <li key={item.id} className="flex items-center py-4 border-b">
                                     <img
                                         src={item.image}
                                         alt={item.name}
@@ -52,32 +53,34 @@ const CartPopup = ({
                                     />
                                     <div className="flex-1">
                                         <p className="font-semibold py-2">{item.name}</p>
-                                        <div className='flex flex-col items-center w-[120px]'>
+                                        <div className='flex flex-col items-center w-[120px]' id={`cart-item-quantity-${item.id}`}>
                                             <div className="flex items-center justify-center w-[100px] gap-2 border-2 border-gray-200 px-2">
                                                 <button 
+                                                    id={`decrease-quantity-${item.id}`} 
                                                     className="p-1" 
-                                                    onClick={() => onDecreaseQuantity(index)} 
+                                                    onClick={() => onDecreaseQuantity(item.id)} 
                                                 >
                                                     -
                                                 </button>
-                                                <span className="px-1 text-black">{item.quantity || 1}</span>
+                                                <span className="px-1 text-black" id={`quantity-display-${item.id}`}>{item.quantity || 1}</span>
                                                 <button 
+                                                    id={`increase-quantity-${item.id}`} 
                                                     className="p-1" 
-                                                    onClick={() => onIncreaseQuantity(index)} 
+                                                    onClick={() => onIncreaseQuantity(item.id)} 
                                                 >
                                                     +
                                                 </button>
                                             </div>
                                             <button 
+                                                id={`remove-item-${item.id}`} 
                                                 className="text-red-500" 
-                                                onClick={() => handleRemoveItem(index)}
+                                                onClick={() => handleRemoveItem(item.id)}
                                             >
                                                 Remove
                                             </button>
                                         </div>
- 
                                     </div>
-                                    <td className=" p-4 text-center">
+                                    <td className="p-4 text-center">
                                         <p className="text-light-primary font-bold">
                                             ₱ {(item.selling_price * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                         </p>
@@ -93,8 +96,15 @@ const CartPopup = ({
                         </div>
                     )}
                     <div className="mt-4 flex justify-start items-center gap-4 px-6">
-                        <button onClick={handleViewCart} className="px-4 py-2 bg-blue-500 text-white rounded">View Cart</button>
+                        <button 
+                            id="view-cart-button" 
+                            onClick={handleViewCart} 
+                            className="px-4 py-2 bg-blue-500 text-white rounded"
+                        >
+                            View Cart
+                        </button>
                         <button
+                            id="checkout-button"
                             onClick={() => {
                                 if (cartItems.length > 0) {
                                     setIsCheckoutModalOpen(true); // Open the checkout modal

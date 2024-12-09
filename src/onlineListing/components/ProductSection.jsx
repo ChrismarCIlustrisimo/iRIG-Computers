@@ -21,7 +21,11 @@ const ProductSection = ({ title, products, onPrev, onNext }) => {
         {/*<p className='text-lg cursor-pointer hover:underline active:text-white transition duration-200'>View All</p>*/}
       </div>
       <div className='flex items-center justify-between gap-2 max-h-full'>
-        <button onClick={onPrev} className='bg-transparent text-black rounded-lg border border-gray-300 hover:bg-gray-100 transition duration-200 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10'>
+        <button 
+          id="prev-button"  // Added ID for the previous button
+          onClick={onPrev} 
+          className='bg-transparent text-black rounded-lg border border-gray-300 hover:bg-gray-100 transition duration-200 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10'
+        >
           <GrFormPrevious />
         </button>
         <div className="flex justify-center overflow-x-auto">
@@ -33,7 +37,11 @@ const ProductSection = ({ title, products, onPrev, onNext }) => {
             ))}
           </div>
         </div>
-        <button onClick={onNext} className='bg-transparent text-black rounded-lg border border-gray-300 hover:bg-gray-100 transition duration-200 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10'>
+        <button 
+          id="next-button"  // Added ID for the next button
+          onClick={onNext} 
+          className='bg-transparent text-black rounded-lg border border-gray-300 hover:bg-gray-100 transition duration-200 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10'
+        >
           <MdNavigateNext />
         </button>
       </div>
@@ -42,3 +50,4 @@ const ProductSection = ({ title, products, onPrev, onNext }) => {
 };
 
 export default ProductSection;
+

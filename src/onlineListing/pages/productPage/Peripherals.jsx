@@ -150,6 +150,7 @@ const Peripherals = () => {
                                         }
                                         className="w-1/3 border border-gray-300 p-1 text-center text-sm"
                                         placeholder="Min"
+                                        id="price-min"  // Adding id to the Min price input
                                     />
                                     <span className="mx-2 text-sm">-</span>
                                     <input
@@ -165,6 +166,7 @@ const Peripherals = () => {
                                         }
                                         className="w-1/3 border border-gray-300 p-1 text-center text-sm"
                                         placeholder="Max"
+                                        id="price-max"  // Adding id to the Max price input
                                     />
                                 </div>
                                 <input
@@ -179,6 +181,7 @@ const Peripherals = () => {
                                         }))
                                     }
                                     className="w-full"
+                                    id="price-range"  // Adding id to the range slider
                                 />
                                 <div className="flex justify-between text-sm mt-1">
                                     <span>₱{filters.priceRange[0]}</span>
@@ -186,10 +189,12 @@ const Peripherals = () => {
                                 </div>
                             </div>
 
+
                             <div>
                                 <h3 className="text-lg font-medium mb-2">Top Selling</h3>
                                 <div className="flex items-center space-x-2">
                                     <input
+                                        id='topSellingProduct'
                                         type="checkbox"
                                         checked={filters.isTopSelling}
                                         onChange={() => setFilters((prevFilters) => ({

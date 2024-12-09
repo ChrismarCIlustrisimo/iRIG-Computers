@@ -129,64 +129,69 @@
                             <div className="max-md:hidden min-w-[20%] max-w-[20%] bg-white border border-gray-200 p-4 rounded-lg shadow-lg space-y-6 h-[500px] overflow-y-auto">
                             <h2 className="text-xl font-semibold mb-4">Filters</h2>
 
-                                {/* Price Range */}
-                                <div className="border-b border-gray-300 pb-4 mb-4">
-                                    <h3 className="text-lg font-medium mb-2">Price Range</h3>
-                                    <div className="flex justify-between items-center mb-2">
+                                    {/* Price Range */}
+                                    <div className="border-b border-gray-300 pb-4 mb-4">
+                                        <h3 className="text-lg font-medium mb-2">Price Range</h3>
+                                        <div className="flex justify-between items-center mb-2">
+                                            <input
+                                                type="number"
+                                                min="0"
+                                                max="10000"
+                                                value={filters.priceRange[0]}
+                                                onChange={(e) =>
+                                                    setFilters((prevFilters) => ({
+                                                        ...prevFilters,
+                                                        priceRange: [Number(e.target.value), filters.priceRange[1]],
+                                                    }))
+                                                }
+                                                className="w-1/3 border border-gray-300 p-1 text-center text-sm"
+                                                placeholder="Min"
+                                                id="price-min"  // Adding id to the Min price input
+                                            />
+                                            <span className="mx-2 text-sm">-</span>
+                                            <input
+                                                type="number"
+                                                min="0"
+                                                max="10000"
+                                                value={filters.priceRange[1]}
+                                                onChange={(e) =>
+                                                    setFilters((prevFilters) => ({
+                                                        ...prevFilters,
+                                                        priceRange: [filters.priceRange[0], Number(e.target.value)],
+                                                    }))
+                                                }
+                                                className="w-1/3 border border-gray-300 p-1 text-center text-sm"
+                                                placeholder="Max"
+                                                id="price-max"  // Adding id to the Max price input
+                                            />
+                                        </div>
                                         <input
-                                            type="number"
-                                            min="0"
-                                            max={filters.priceRange[1]} // Ensure max matches current max
+                                            type="range"
+                                            min={0}
+                                            max={10000}
                                             value={filters.priceRange[0]}
                                             onChange={(e) =>
                                                 setFilters((prevFilters) => ({
                                                     ...prevFilters,
-                                                    priceRange: [Number(e.target.value), prevFilters.priceRange[1]],
+                                                    priceRange: [Number(e.target.value), filters.priceRange[1]],
                                                 }))
                                             }
-                                            className="w-1/3 border border-gray-300 p-1 text-center text-sm"
-                                            placeholder="Min"
+                                            className="w-full"
+                                            id="price-range"  // Adding id to the range slider
                                         />
-                                        <span className="mx-2 text-sm">-</span>
-                                        <input
-                                            type="number"
-                                            min={filters.priceRange[0]} // Ensure min matches current min
-                                            max="1000000"
-                                            value={filters.priceRange[1]}
-                                            onChange={(e) =>
-                                                setFilters((prevFilters) => ({
-                                                    ...prevFilters,
-                                                    priceRange: [prevFilters.priceRange[0], Number(e.target.value)],
-                                                }))
-                                            }
-                                            className="w-1/3 border border-gray-300 p-1 text-center text-sm"
-                                            placeholder="Max"
-                                        />
+                                        <div className="flex justify-between text-sm mt-1">
+                                            <span>₱{filters.priceRange[0]}</span>
+                                            <span>₱{filters.priceRange[1]}</span>
+                                        </div>
                                     </div>
-                                    <input
-                                        type="range"
-                                        min={0}
-                                        max={1000000} // Update this if you have a different max price
-                                        value={filters.priceRange[0]}
-                                        onChange={(e) =>
-                                            setFilters((prevFilters) => ({
-                                                ...prevFilters,
-                                                priceRange: [Number(e.target.value), prevFilters.priceRange[1]],
-                                            }))
-                                        }
-                                        className="w-full"
-                                    />
-                                    <div className="flex justify-between text-sm mt-1">
-                                        <span>₱{filters.priceRange[0]}</span>
-                                        <span>₱{filters.priceRange[1]}</span>
-                                    </div>
-                                </div>
+
 
 
                                 <div>
                                     <h3 className="text-lg font-medium mb-2">Top Selling</h3>
                                     <div className="flex items-center space-x-2">
                                         <input
+                                            id='topSellingProduct'
                                             type="checkbox"
                                             checked={filters.isTopSelling}
                                             onChange={() => setFilters((prevFilters) => ({

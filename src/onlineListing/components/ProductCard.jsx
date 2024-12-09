@@ -35,19 +35,22 @@ const ProductCard = ({ product }) => {
                 </p>
             </div>
             <div className="flex gap-1 items-center justify-center">
-            <button
-                    className="bg-orange-600 py-1  md:px-4 px-1 text-white rounded hover:bg-orange-700 transition duration-200 text-sm"
-                    onClick={handleAddToCart} // Use the new handler
-                >
-                    Add to Cart
-                </button>
-                <button
-                    onClick={handleViewProduct}
-                    className="bg-orange-600 text-white py-1 md:px-4 px-1 text-lg rounded hover:bg-orange-700 transition duration-200 flex items-center justify-center"
-                >
-                    <IoEyeOutline />
-                </button>
+                    <button
+                        id="add-to-cart-button"  // Added ID for the "Add to Cart" button
+                        className="bg-orange-600 py-1 md:px-4 px-1 text-white rounded hover:bg-orange-700 transition duration-200 text-sm"
+                        onClick={handleAddToCart} // Use the new handler
+                    >
+                        Add to Cart
+                    </button>
+                    <button
+                        id="view-product-button"  // Added ID for the "View Product" button
+                        onClick={handleViewProduct}
+                        className="bg-orange-600 text-white py-1 md:px-4 px-1 text-lg rounded hover:bg-orange-700 transition duration-200 flex items-center justify-center"
+                    >
+                        <IoEyeOutline />
+                    </button>
             </div>
+
         </div>
     );
 };
