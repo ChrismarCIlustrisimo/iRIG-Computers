@@ -44,7 +44,7 @@ const CartPopup = ({
                         </div>
                     ) : (
                         <ul className="md:max-h-[320px] h-[50vh] overflow-y-auto">
-                            {cartItems.map((item) => (
+                            {cartItems.map((item, index) => (
                                 <li key={item.id} className="flex items-center py-4 border-b">
                                     <img
                                         src={item.image}
@@ -58,7 +58,7 @@ const CartPopup = ({
                                                 <button 
                                                     id={`decrease-quantity-${item.id}`} 
                                                     className="p-1" 
-                                                    onClick={() => onDecreaseQuantity(item.id)} 
+                                                    onClick={() => onDecreaseQuantity(index)} 
                                                 >
                                                     -
                                                 </button>
@@ -66,7 +66,7 @@ const CartPopup = ({
                                                 <button 
                                                     id={`increase-quantity-${item.id}`} 
                                                     className="p-1" 
-                                                    onClick={() => onIncreaseQuantity(item.id)} 
+                                                    onClick={() => onIncreaseQuantity(index)} 
                                                 >
                                                     +
                                                 </button>

@@ -55,6 +55,7 @@ const ProductProvider = ({ children }) => {
     
     
     
+    
     const removeItem = (index) => {
       console.log("Removing item at index:", index); 
       setCart((prevCart) => prevCart.filter((_, i) => i !== index));
