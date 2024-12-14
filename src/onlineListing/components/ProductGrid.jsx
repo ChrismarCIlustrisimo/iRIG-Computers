@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard'; // Adjust the import path as needed
 import axios from 'axios';
 import { API_DOMAIN } from '../../utils/constants';
+import { Link } from 'react-router-dom';
 
 const ProductGrid = () => {
   const [desktops, setDesktops] = useState([]);
@@ -60,13 +61,13 @@ const CategoryCard = ({ category }) => {
     <div style={{ backgroundColor: category.backgroundColor }} className="border border-gray-200 rounded-lg p-6">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-semibold text-white">{category.title}</h2>
-        <a
+        <Link
           id={`view-all-${category.title.toLowerCase()}`}  // Adds an ID based on the category title (e.g., "view-all-desktops")
-          href={category.viewAllLink}
+          to={category.viewAllLink}
           className="text-white font-medium hover:underline"
         >
           View All
-        </a>
+        </Link>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
         {category.products.map((product, index) => (
